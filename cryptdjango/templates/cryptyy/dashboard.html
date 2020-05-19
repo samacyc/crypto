@@ -1,0 +1,658 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css'%}">
+    <link href="{%static '/assets/module/font-awesome-4.7.0/css/font-awesome.css'%}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static '/assets/css/main.css'%}">
+    <script src="{% static '/assets/js/jquery-3.3.1.min.js'%}"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="{%static '/assets/js/main.js' %}"></script>
+    <script src="{%static '/assets/js/bootstrap.min.js' %}"></script>
+</head>
+
+<body class=" p-1 " style="overflow-x: auto; ">
+    <div class="row ">
+
+        <!--Left Side Container-->
+        <div class="col-lg-3 ">
+            <!--Top Buttons-->
+            <div class="row ">
+                <div class="col-12 ">
+                    <button class="btn activeButton ">Favourites
+                        <i class="fa fa-square-o iconColor ml-2 "></i>
+                        <i class="fa fa-times iconColor ml-1 "></i>
+                    </button>
+
+                    <button class="btn nonActiveButton ">Market Watch
+                    </button>
+
+                    <button class="btn nonActiveButton ">
+                        <i class="fa fa-plus "></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-12 ">
+                    <div class="card py-2 ">
+                        <div class="px-2 ">
+                            <!--Search Box-->
+                            <div class="row ">
+                                <div class="col-12 ">
+                                    <div class="form-inline ">
+                                        <label for="email " class="mr-2 ">Add:</label>
+                                        <input type="email " class="searchBox " id="email " placeholder="e.g. EURUSD ">
+                                        <button class="btn activeButton ">
+                                            <i class="fa fa-bars "></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Labels-->
+                            <div class="row ">
+                                <div class="col-12 ">
+                                    <div class="py-2 boder-bottom ">
+                                        <div class="row ">
+                                            <div class="col-3 col-border-right ">
+                                                <p>SYMBOL</p>
+                                            </div>
+                                            <div class="col-3 col-border-right ">
+                                                <p>CHANGE(1,2)</p>
+                                            </div>
+                                            <div class="col-3 col-border-right ">
+                                                <p>BID</p>
+                                            </div>
+                                            <div class="col-3 ">
+                                                <p>ASK</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="leftHeight px-2 ">
+                            <!--Price with icons-->
+                            <div class="row ">
+                                <div class="col-12 py-2 ">
+                                    <p><span class="greenSpan ">US500</span> <span class="graySpan ">IND</span> <span class="float-right ">0.5
+                                            <i class="fa fa-exclamation-circle ml-2 "></i>
+                                            <span class="ml-2 ">SL/TP</span>
+                                        <i class="fa fa-edit ml-2 "></i>
+                                        <i class="fa fa-line-chart ml-2 "></i>
+                                        <i class="fa fa-trash-o ml-2 "></i>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--Sell Buy buttons-->
+                            <div class="row ">
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-5 pr-1 ">
+                                            <div class="redBox px-2 pt-2 ">
+                                                <p class="boxUpperText text-right ">Sell</p>
+                                                <p class="boxLowerText text-left ">2347.2</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 ">
+                                            <div class="grayBox ">
+                                                <p class="boxMiddleText text-center ">1.00</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 pl-1 ">
+                                            <div class="greenBox px-2 pt-2 ">
+                                                <p class="boxUpperText text-left ">Buy</p>
+                                                <p class="boxLowerText text-right " style="right: 21px; ">2347.7</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Sell Buy price-->
+                            <div class="row ">
+                                <div class="col-12 ">
+                                    <div class="row ">
+                                        <div class="col-5 pr-1 ">
+                                            <button class="btn redBtn ">Low: 2343.2</button>
+                                        </div>
+                                        <div class="col-2 ">
+                                            <p class="redText text-center pt-2 ">-0.18%</p>
+                                        </div>
+                                        <div class="col-5 pl-1 ">
+                                            <button class="btn float-right greenBtn ">High: 2356.2</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Sell Buy progress Bar-->
+                            <div class="row py-3 ">
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">5</p>
+                                                </div>
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceRight ">2347.2</p>
+                                                    <div class="progress mt-2 right-progress ">
+                                                        <div class="progress-bar redProgressBar " style="width: 25%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceLeft ">2347.2</p>
+                                                    <div class="progress mt-2 ">
+                                                        <div class="progress-bar greenProgressBar " style="width: 25%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">3</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">7</p>
+                                                </div>
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceRight ">2346.2</p>
+                                                    <div class="progress mt-2 right-progress ">
+                                                        <div class="progress-bar redProgressBar " style="width: 35%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceLeft ">2348.2</p>
+                                                    <div class="progress mt-2 ">
+                                                        <div class="progress-bar greenProgressBar " style="width: 35%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">6</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">9</p>
+                                                </div>
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceRight ">2346.2</p>
+                                                    <div class="progress mt-2 right-progress ">
+                                                        <div class="progress-bar redProgressBar " style="width: 45%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceLeft ">2348.2</p>
+                                                    <div class="progress mt-2 ">
+                                                        <div class="progress-bar greenProgressBar " style="width: 45%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">9</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">12</p>
+                                                </div>
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceRight ">2346.2</p>
+                                                    <div class="progress mt-2 right-progress ">
+                                                        <div class="progress-bar redProgressBar " style="width: 100%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceLeft ">2348.2</p>
+                                                    <div class="progress mt-2 ">
+                                                        <div class="progress-bar greenProgressBar " style="width: 100%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">12</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 pt-2 ">
+                                    <div class="row ">
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">15</p>
+                                                </div>
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceRight ">2346.2</p>
+                                                    <div class="progress mt-2 right-progress ">
+                                                        <div class="progress-bar redProgressBar " style="width: 75%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-1 ">
+                                            <div class="row ">
+                                                <div class="col-10 ">
+                                                    <p class="progressPriceLeft ">2348.2</p>
+                                                    <div class="progress mt-2 ">
+                                                        <div class="progress-bar greenProgressBar " style="width: 75%; ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 ">
+                                                    <p class="text-center ">10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Table-->
+                            <div class="row ">
+                                <div class="col-12 " style="overflow-x: auto; ">
+                                    <table class="table ">
+                                        <thead></thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-down "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="red-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="red-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-chevron-up "></i>
+                                                </td>
+                                                <td>CORN</td>
+                                                <td class="green-text-color ">+0.54%</td>
+                                                <td>374.34</td>
+                                                <td>374.73</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-9 pl-2 ">
+            <!--Top Buttons-->
+            <div class="row ">
+                <div class="col-12 ">
+                    <div class="row ">
+                        <div class="col-8 ">
+                            <button class="btn activeButton ">Charts
+                                <i class="fa fa-chevron-down ml-2 " style="color: black; "></i>
+                                <i class="fa fa-square-o iconColor ml-1 "></i>
+                                <i class="fa fa-times iconColor ml-1 "></i>
+                            </button>
+
+                            <button class="btn nonActiveButton ">News
+                            </button>
+
+                            <button class="btn nonActiveButton ">Calendar
+                            </button>
+
+                            <button class="btn nonActiveButton ">Statistics
+                            </button>
+
+                            <button class="btn nonActiveButton ">Market analysis
+                            </button>
+
+                            <button class="btn nonActiveButton ">
+                                <i class="fa fa-plus "></i>
+                            </button>
+                        </div>
+
+                        <div class="col-4 text-right ">
+                            <i class="fa fa-window-restore iconColor ml-2 "></i>
+                            <i class="fa fa-compress iconColor ml-2 "></i>
+                            <i class="fa fa-bell-o iconColor ml-2 "></i>
+                            <i class="fa fa-circle iconColor ml-2 " style="color: yellow; "></i>
+                            <select class="form-control selectStyle ml-2 ">
+                                <option>DEMO 10172249</option>
+                            </select>
+                            <i class="fa fa-power-off iconColor ml-2 "></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card p-2 " style="margin-top: -3px; ">
+                <div class="row ">
+                    <div class="col-12 ">
+                        <span class="eurusdStyle ">Currency</span>
+                        <select class="form-control smallSelectStyle ml-2 ">
+                            <option>FX</option>
+                        </select>
+                        <select class="form-control smallSelectStyle ml-2 ">
+                            <option>M1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 ">
+                        <button class="btn smallRedButton ">1.06084</button>
+                        <button class="btn smallGrayButton ">- 1.00 +</button>
+                        <button class="btn smallGreenButton ">1.06092</button>
+
+                        <span style="color: #455A64;font-size: 14px; ">
+                            <span class="ml-2 ">SL/TP</span>
+                        <i class="fa fa-line-chart ml-3 "></i>
+                        <i class="fa fa-search-minus ml-2 "></i>
+                        <i class="fa fa-search-plus ml-2 "></i>
+                        <i class="fa fa-arrows ml-2 "></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 ">
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                            <div id="tradingview_f56d8" style="height: 59.4vh;">
+                                <div id="tradingview_5a118-wrapper" style="position: relative;box-sizing: content-box;width: 100%;height: 100%;margin: 0 auto !important;padding: 0 !important;font-family:Arial,sans-serif;">
+                                    <div style="width: 100%;height: 100%;background: transparent;padding: 0 !important;"><iframe id="tradingview_5a118" src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_5a118&amp;symbol=FX%3AEURUSD&amp;interval=1&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=f1f3f6&amp;studies=%5B%5D&amp;theme=light&amp;style=1&amp;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=FX%3AEURUSD"
+                                            style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" allowtransparency="true" scrolling="no" allowfullscreen="" frameborder="0"></iframe></div>
+                                </div>
+                            </div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+                                new TradingView.widget({
+                                    "autosize": true,
+                                    "symbol": "FX:EURUSD",
+                                    "interval": "1",
+                                    "timezone": "Etc/UTC",
+                                    "theme": "light",
+                                    "style": "1",
+                                    "locale": "en",
+                                    "hide_side_toolbar": false,
+                                    "toolbar_bg": "#f1f3f6",
+                                    "enable_publishing": false,
+                                    "allow_symbol_change": true,
+                                    "container_id": "tradingview_f56d8"
+                                });
+                            </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2 ">
+        <div class="col-12 ">
+            <div class="row ">
+                <div class="col-12 ">
+                    <button class="btn activeButton ">Open positions
+                        <i class="fa fa-square-o iconColor ml-2 "></i>
+                        <i class="fa fa-times iconColor ml-1 "></i>
+                    </button>
+
+                    <button class="btn nonActiveButton ">Pending orders
+                    </button>
+
+                    <button class="btn nonActiveButton ">History
+                    </button>
+
+                    <button class="btn nonActiveButton ">Cash operations
+                    </button>
+
+                    <button class="btn nonActiveButton ">
+                        <i class="fa fa-plus "></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-12 ">
+                    <div class="card " style="overflow-x: auto; ">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>POSITION</th>
+                                    <th>
+                                        <i class="fa fa-filter "></i> TYPE
+                                    </th>
+                                    <th>VOLUME</th>
+                                    <th>OPEN TIME</th>
+                                    <th>OPEN PRICE</th>
+                                    <th>SL</th>
+                                    <th>TP</th>
+                                    <th>MARKET PRICE</th>
+                                    <th>COMISSION</th>
+                                    <th>SWAP</th>
+                                    <th>PROFITE</th>
+                                    <th>
+                                        <button class="btn smallRedButton " style="font-size: 14px;padding: 2px 7px; ">Close <i
+                                                class="fa fa-chevron-down "
+                                                style="color: white;font-size: 10px;margin-left: 5px; "></i></button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>105708901</td>
+                                    <td>Sell</td>
+                                    <td>1.00</td>
+                                    <td>2017-4-12 15:44:39</td>
+                                    <td>374.34</td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                    <td>1.06092</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td class="green-text-color ">2.40</td>
+                                    <td class="red-text-color ">
+                                        <i class="fa fa-chevron-down ml-3 " style="font-size: 10px;margin-left: 5px; "></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>105708901</td>
+                                    <td>Sell</td>
+                                    <td>1.00</td>
+                                    <td>2017-4-12 15:44:39</td>
+                                    <td>374.34</td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                    <td>1.06092</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td class="green-text-color ">2.40</td>
+                                    <td class="red-text-color ">
+                                        <i class="fa fa-times ml-3 " style="font-size: 10px;margin-left: 5px; "></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2 ">
+        <div class="col-12 ">
+            <div style="background: white;overflow-x: auto; ">
+                <div style="width: max-content;min-width: 100%; ">
+                    <button class="btn orangebtn mr-3 ">Open real account</button>
+
+                    <table style="display: inline; ">
+                        <tr>
+                            <td>
+                                <div class="mainSpan ">
+                                    <span class="upperSpan ">Balance</span>
+                                    <span class="lowerSpan ">96,913.97</span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="mainSpan ">
+                                    <span class="upperSpan ">Equity</span>
+                                    <span class="lowerSpan ">96,913.97</span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="mainSpan ">
+                                    <span class="upperSpan ">Margin</span>
+                                    <span class="lowerSpan ">424.59</span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="mainSpan ">
+                                    <span class="upperSpan ">Free Margin</span>
+                                    <span class="lowerSpan ">424.59</span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="mainSpan ">
+                                    <span class="upperSpan ">Margin Level</span>
+                                    <span class="lowerSpan ">96,913.97%</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="display: inline;float: right;margin-top: 10px; ">
+                        <span class="rightSpan mr-3 ">Profit <span style="color: #00b276; ">2.40</span> GBP</span>
+                        <i class="fa fa-comments-o mr-3 " style="color: #6ccdf9;font-size: 23px; "></i>
+                        <i class="fa fa-cog mr-3 " style="color: #455A64;font-size: 23px; "></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
